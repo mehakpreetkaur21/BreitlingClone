@@ -1,0 +1,15 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    min-height: 500px;
+    gap: 20px; /* Add horizontal gap between cards */
+    margin: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .mainContainer {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,352 @@
+/* global.css or cervo-font.css */
+@font-face {
+  font-family: 'Cervo Neue';
+  src: url('/fonts/CervoNeue-Regular.woff2') format('woff2'),
+       url('/fonts/CervoNeue-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cervo Neue';
+  src: url('/fonts/CervoNeue-Bold.woff2') format('woff2'),
+       url('/fonts/CervoNeue-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.navbar {
+  background-color: #facc15;
+  color: #000000;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  width: 100%;
+  padding: 16px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  width: 70%;
+  margin: auto;
+  font-weight: bold;
+}
+
+.left-container, .right-container {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.language-selector,
+.phone-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: small;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.brand-year {
+  font-size: 14px;
+}
+
+.help-icon {
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.accessIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.help-text {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.navigation-section {
+  width: 100%;
+  position: relative;
+}
+
+.desktop-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  gap: 48px;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  font-family: 'Cervo Neue', sans-serif;
+  font-weight: 550;
+}
+
+/* Mobile Menu Button - hidden by default */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 18px;
+  color: inherit;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Navigation - FIXED: Now properly hidden by default */
+.mobile-navigation {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #facc15;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* FIXED: Added class for when mobile menu is open */
+.mobile-navigation.open {
+  display: block;
+}
+
+.mobile-nav-links {
+  padding: 20px;
+}
+
+.mobile-nav-link {
+  display: block;
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  font-family: 'Cervo Neue', sans-serif;
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-link:hover {
+  opacity: 0.7;
+}
+
+.mobile-contact-info {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-language-selector,
+.mobile-phone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  color: #000;
+  font-size: 14px;
+}
+
+.mobile-language-selector {
+  cursor: pointer;
+}
+
+.mobile-language-selector:hover {
+  opacity: 0.7;
+}
+
+/* Responsive Breakpoints */
+
+/* Large screens - keep everything as is */
+@media (min-width: 1025px) {
+  /* Your existing styles apply here */
+}
+
+/* Tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .main-container {
+    padding: 0 16px;
+  }
+  
+  .desktop-navigation {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 15px;
+  }
+  
+  .top-row {
+    width: 90%;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 0 12px;
+  }
+  
+  .top-row {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Hide left container on mobile */
+  .left-container {
+    display: none;
+  }
+  
+  /* Center logo on mobile */
+  .logo-container {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .logo-container img {
+    height: 32px;
+  }
+  
+  /* Adjust right container spacing */
+  .right-container {
+    gap: 12px;
+  }
+  
+  .action-icon {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Show mobile menu button */
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  /* Hide desktop navigation */
+  .desktop-navigation {
+    display: none;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .main-container {
+    padding: 0 8px;
+  }
+  
+  .logo-container img {
+    height: 28px;
+  }
+  
+  .right-container {
+    gap: 8px;
+  }
+  
+  .action-icon {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+  
+  .mobile-nav-links {
+    padding: 16px;
+  }
+  
+  .mobile-nav-link {
+    padding: 12px 0;
+    font-size: 15px;
+  }
+  
+  .mobile-contact-info {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+  
+  .mobile-language-selector,
+  .mobile-phone {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .main-container {
+    padding: 0 4px;
+  }
+  
+  .logo-container img {
+    height: 24px;
+  }
+  
+  .right-container {
+    gap: 4px;
+  }
+  
+  .action-icon {
+    width: 28px;
+    height: 28px;
+    padding: 2px;
+  }
+  
+  .mobile-menu-button {
+    padding: 4px;
+    font-size: 16px;
+  }
+}

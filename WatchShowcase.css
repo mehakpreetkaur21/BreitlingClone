@@ -1,0 +1,151 @@
+.watch-showcase-container {
+  width: 70%;
+  margin: auto;
+  padding-bottom: 2rem;
+  /* background-color: #f5f5f5; */
+}
+
+.watch-card-container {
+  display: flex;
+  gap: 1rem;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.watch-card {
+  flex: 1;
+  height: 400px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.mens-card {
+  background-image: url('https://www.breitling.com/api/image-proxy/images.ctfassets.net/11yu5j5b14kx/cQuJkkUMYx8ldj5yi7xfo/23e8818f13d39f6bcf12153a0c2cf439/HP-men.jpg?im=RegionOfInterestCrop%2Cwidth%3D3495%2Cheight%3D2621%2CregionOfInterest%3D%28459%2C414%29&format=auto');
+}
+
+.womens-card {
+  background-image: url('https://www.breitling.com/api/image-proxy/images.ctfassets.net/11yu5j5b14kx/2pVwY1VARlHQ7i0VZgVSSJ/3ea579c72354fef7911518bb45751234/HP-women.jpg?im=RegionOfInterestCrop%2Cwidth%3D3495%2Cheight%3D2621%2CregionOfInterest%3D%28895%2C939%29&format=auto');
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.watch-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem;
+  color: white;
+  z-index: 2;
+}
+
+.watch-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  /* margin: 0 0 1.5rem 0; */
+  display:flex;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  gap: 10px;
+}
+
+.title-highlight {
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.discover-link {
+  /* color: white; */
+  background-color:transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  /* letter-spacing: 1px; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding-bottom: 0px;
+  border:none;
+  width:120px;
+  margin:auto;
+  border-bottom: 2px solid #ffd700;
+}
+
+.discover-link:hover {
+  color: #ffd700;
+  transform: translateX(5px);
+  background-color:transparent;
+}
+
+.btn-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color:#ffd700;
+}
+
+.discover-link:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .watch-showcase-container {
+    padding: 1rem;
+  }
+  
+  .watch-card-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .watch-card {
+    height: 300px;
+  }
+  
+  .watch-title {
+    font-size: 1.8rem;
+  }
+  
+  .watch-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .watch-title {
+    font-size: 1.5rem;
+  }
+  
+  .watch-card {
+    height: 250px;
+  }
+  
+  .discover-link {
+    font-size: 0.9rem;
+  }
+}

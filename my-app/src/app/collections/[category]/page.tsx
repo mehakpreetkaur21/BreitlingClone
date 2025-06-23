@@ -1,30 +1,36 @@
-'use client';
-import { Breadcrumb } from '@/components/ui/BreadCrumb/BreadCrumb';
-import { useParams } from 'next/navigation';
-import './index.css';
-import WatchCollection from '@/components/ui/WatchCollection/WatchCollection';
-export default function CategoryPage() {
-  const params = useParams();
-  const category = params?.category as string;
+// app/product/[id]/page.tsx
+import Boutique from '@/components/ui/Boutique/Boutique';
+import KeyFeaturesServer from '@/components/ui/WatchCollection/KeyFeaturesServer/KeyFeaturesServer';
+import ProductDetailsServer, { getProductData } from '@/components/ui/WatchCollection/ProductDetails/ProductDetailsServer';
+import StorySection from '@/components/ui/WatchCollection/StorySection/StorySection';
+import TechnicalData from '@/components/ui/WatchCollection/TechnicalData/TechnicalData';
+import WarrantySection from '@/components/ui/WatchCollection/WarrantySection/WarrantySection';
+import { Metadata } from 'next';
 
-  return (
-    <main className='categoryCnt'>
-      <Breadcrumb
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Collections', href: '/collections' },
-          { label: category.replace(/-/g, ' ') }, // convert 'classic-avi' → 'classic avi'
-        ]}
-      />
+interface ProductPageProps {
+  params: {
+    id: string;
+  };
+}
 
-      <div className='highlightHeadingCnt'>
-        <h1 className='highlightHeading'>{category.replace(/-/g, ' ')}</h1>
-        <p>Power in Action - The Modern Performance Aviation Watch</p>
-      </div>
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const product = await getProductData(params.id);
 
-        <div className='collectionCardCnt'>
-          <WatchCollection />
-        </div>
-    </main>
-  );
+  return {
+    title: `${product.name} - Breitling`,
+    description: `${product.name} available for ${product.currency} ${product.price.toLocaleString()}`,
+  };
+}
+
+export default function Page({ params }: ProductPageProps) {
+  return (<div>
+  <ProductDetailsServer id={params.id} />
+  <KeyFeaturesServer/>
+  <TechnicalData/>
+  <StorySection/>
+  <WarrantySection/>
+  {/* <Boutique/> */}
+  </div>)
+  ;
+
 }

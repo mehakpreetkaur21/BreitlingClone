@@ -1,0 +1,63 @@
+.mainCnt {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.innerCnt {
+    width: 70%;
+    margin: auto;
+}
+
+/* watch catalog */
+.watchCatalogCnt {
+    width: 100%;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+}
+
+.watchCatalogHeaderCnt {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+.watchCatalogHeader {
+    color: black;
+    text-transform: uppercase;
+}
+
+.highlightText {
+    color: #ffd700;
+    text-transform: uppercase;
+}
+
+.watchCatalogBody {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-top: -40;
+    margin-left: -30;
+}
+
+.itemCnt {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+
+.imageCnt {
+}
+
+.titleCnt {
+    position: absolute;
+    font-size: small;
+    top: 80%;
+    left: 50;
+    text-decoration: none;
+    color: black;
+}

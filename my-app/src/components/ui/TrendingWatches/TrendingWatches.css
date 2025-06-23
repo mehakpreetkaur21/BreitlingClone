@@ -1,0 +1,412 @@
+.trending-watches-container,
+.trending-watches-client {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+/* Header Styles */
+.trending-header {
+  text-align: center;
+  /* margin-bottom: 1rem; */
+}
+.trending-title {
+  font-size: large;
+  font-weight: bold;
+  color: black;
+  /* letter-spacing: 0.05em; */
+  margin: 0 0 0.5rem 0;
+}
+.trending-subtitle {
+  color: #6B7280;
+  font-size: 1.125rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .trending-title {
+    font-size: 2rem;
+  }
+}
+/* Watches Container */
+.watches-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+}
+.watches-list {
+  display: flex;
+  gap: 1.5rem;
+  min-width: max-content;
+}
+/* Watch Card */
+.watch-card {
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 18rem;
+  transition: all 0.3s ease;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.watch-card:hover,
+.watch-card:focus {
+  transform: translateY(-2px);
+}
+.watch-card:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 4px;
+  border-radius: 0.5rem;
+}
+.watch-card-inner {
+  position: relative;
+  background-color: #F9FAFB;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+.watch-card:hover .watch-card-inner,
+.watch-card:focus .watch-card-inner {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+/* Badges */
+.new-badge,
+.availability-badge {
+  position: absolute;
+  left: 1rem;
+  z-index: 10;
+}
+.new-badge {
+  top: 1rem;
+}
+.availability-badge {
+  top: 3.5rem;
+}
+.new-badge span,
+.availability-badge span {
+  background-color: white;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.availability-badge span {
+  background-color: #F59E0B;
+  color: white;
+}
+/* Wishlist Button */
+.wishlist-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+.wishlist-button {
+  padding: 0.5rem;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.wishlist-button:hover,
+.wishlist-button:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  outline: none;
+}
+.heart-icon {
+  transition: stroke 0.3s ease, fill 0.3s ease;
+  stroke: #6B7280;
+  stroke-width: 2;
+}
+.heart-filled {
+  fill: #EF4444;
+  stroke: #EF4444;
+  transform: scale(1.1);
+}
+.heart-empty:hover {
+  stroke: #EF4444;
+  transform: scale(1.05);
+}
+/* Image Styles */
+.watch-image-container {
+  aspect-ratio: 1;
+  /* padding: 2rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%); */
+  background-color: transparent;
+}
+.watch-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.watch-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  background-color: transparent;
+}
+.watch-image[src*="/api/placeholder"] {
+  object-fit: contain;
+  background-color: #F3F4F6;
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  text-align: center;
+  font-style: italic;
+  background-color: transparent;
+}
+.watch-card:hover .watch-image,
+.watch-card:focus .watch-image {
+  transform: scale(1.05);
+  background-color: transparent;
+}
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, transparent, transparent, rgba(255, 255, 255, 0.1));
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.watch-card:hover .image-overlay,
+.watch-card:focus .image-overlay {
+  opacity: 1;
+}
+/* Discover Button */
+.discover-button-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.watch-card:hover .discover-button-wrapper,
+.watch-card:focus .discover-button-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+.discover-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.875rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.discover-button:hover,
+.discover-button:focus {
+  background-color: #333;
+  outline: none;
+  transform: scale(1.05);
+}
+/* Watch Details */
+.watch-details {
+  /* padding-top: 1.5rem; */
+  text-align: center;
+}
+.watch-model {
+  font-size: 0.75rem;
+  color: #6B7280;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+.watch-name {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: black;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+.watch-variant {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+.watch-price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.watch-price {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: black;
+  transition: color 0.3s ease;
+}
+.watch-card:hover .watch-price {
+  color: #111827;
+}
+.price-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #FBBF24;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price-icon span {
+  font-size: 0.75rem;
+  color: white;
+  font-weight: bold;
+}
+/* Footer */
+.trending-footer {
+  margin-top: 4rem;
+  text-align: center;
+}
+.trending-footer p {
+  color: #6B7280;
+  font-size: 0.875rem;
+  /* margin: 0 0 0.5rem 0; */
+}
+.last-updated {
+  font-weight: 500;
+}
+.collection-info {
+  font-style: italic;
+}
+/* Loading States */
+.trending-watches-loading {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem 1rem;
+  background-color: white;
+}
+.loading-title {
+  height: 4rem;
+  margin: 0 auto 3rem auto;
+  max-width: 400px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.watches-loading-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+.watches-loading-list {
+  display: flex;
+  gap: 1.5rem;
+  min-width: max-content;
+}
+.watch-loading-card {
+  width: 18rem;
+  flex-shrink: 0;
+}
+.watch-loading-image {
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.watch-loading-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+.loading-shimmer {
+  background: linear-gradient(90deg, #F0F0F0 25%, #E0E0E0 50%, #F0F0F0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+}
+.loading-text-sm {
+  height: 1rem;
+  width: 60%;
+}
+.loading-text-md {
+  height: 1.25rem;
+  width: 80%;
+}
+.loading-text-lg {
+  height: 1.5rem;
+  width: 50%;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/* Error State */
+.trending-watches-error {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.error-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.error-content h2 {
+  font-size: 1.5rem;
+}
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .watch-card {
+    width: 14rem;
+    padding-bottom: 1rem;
+  }
+  .trending-title {
+    font-size: 2rem;
+  }
+  .trending-subtitle {
+    font-size: 1rem;
+  }
+  .discover-button {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+  .watch-card:hover .discover-button-wrapper,
+  .watch-card:focus .discover-button-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .watch-card:hover,
+  .watch-card:focus,
+  .discover-button:hover,
+  .wishlist-button:hover {
+    transform: none;
+  }
+  .watch-image,
+  .heart-icon,
+  .discover-button-wrapper {
+    transition: none !important;
+  }
+}

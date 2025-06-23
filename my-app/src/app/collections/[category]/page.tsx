@@ -1,10 +1,10 @@
 // app/product/[id]/page.tsx
 import Boutique from '@/components/ui/Boutique/Boutique';
-import KeyFeaturesServer from '@/components/ui/WatchCollection/KeyFeaturesServer/KeyFeaturesServer';
-import ProductDetailsServer, { getProductData } from '@/components/ui/WatchCollection/ProductDetails/ProductDetailsServer';
-import StorySection from '@/components/ui/WatchCollection/StorySection/StorySection';
-import TechnicalData from '@/components/ui/WatchCollection/TechnicalData/TechnicalData';
-import WarrantySection from '@/components/ui/WatchCollection/WarrantySection/WarrantySection';
+import KeyFeaturesServer from '@/components/ui/watchComponents/KeyFeaturesServer/KeyFeaturesServer';
+import ProductDetailsServer, { getProductData } from '@/components/ui/watchComponents/ProductDetails/ProductDetailsServer';
+import StorySection from '@/components/ui/watchComponents/StorySection/StorySection';
+import TechnicalData from '@/components/ui/watchComponents/TechnicalData/TechnicalData';
+import WarrantySection from '@/components/ui/watchComponents/WarrantySection/WarrantySection';
 import { Metadata } from 'next';
 
 interface ProductPageProps {

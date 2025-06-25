@@ -1,26 +1,38 @@
-import { Breadcrumb } from '@/components/ui/BreadCrumb/BreadCrumb';
+import Boutique from "@/components/ui/Boutique/Boutique";
+import KeyFeaturesServer from "@/components/ui/watchComponents/KeyFeaturesServer/KeyFeaturesServer";
+import ProductDetailsServer from "@/components/ui/watchComponents/ProductDetails/ProductDetailsServer";
+
+import StorySection from "@/components/ui/watchComponents/StorySection/StorySection";
+import TechnicalData from "@/components/ui/watchComponents/TechnicalData/TechnicalData";
+import WarrantySection from "@/components/ui/watchComponents/WarrantySection/WarrantySection";
+import "./index.css";
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     category: string;
     model: string;
-    productId: string;
-  };
+    product: string;
+  }>;
 }
 
-const ProductPage = ({ params }: ProductPageProps) => {
-  const { category, model, productId } = params;
+export default async function Page({ params }: ProductPageProps) {
+  const resolvedParams = await params;
+  const productId = resolvedParams.product.split("/").pop();
+
+  if (!productId) {
+    throw new Error("Invalid product ID");
+  }
+
+  console.log(productId);
 
   return (
-    <main className="productDetailCnt">
-      
-
-      <h1 className="productHeading">{model.replace(/-/g, ' ')}</h1>
-      <p>Product ID: {productId}</p>
-
-      {/* Later you can fetch and render full product details based on productId */}
-    </main>
+    <div>
+      <ProductDetailsServer id={productId} />
+      <KeyFeaturesServer />
+      <TechnicalData />
+      <StorySection />
+      <WarrantySection />
+      {/* <Boutique /> */}
+    </div>
   );
-};
-
-export default ProductPage;
+}

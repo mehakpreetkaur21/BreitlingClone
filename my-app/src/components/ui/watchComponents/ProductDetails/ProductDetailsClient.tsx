@@ -3,8 +3,15 @@
 import { useState } from 'react';
 
 interface ProductClientProps {
-  images: string[];
+  images: Array<{
+    url: string;
+    alt?: string;
+    type?: string;
+    strapPreviewCoordinates?: any;
+    shotType?: string;
+  }>;
 }
+
 
 export default function ProductDetailsClient({ images }: ProductClientProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -84,7 +91,7 @@ export default function ProductDetailsClient({ images }: ProductClientProps) {
 
         <div className="carousel-image-container">
           <img 
-            src={images[currentImageIndex]} 
+            src={images[currentImageIndex].url} 
             alt={`Product view ${currentImageIndex + 1}`}
             className="carousel-image"
             loading="lazy"

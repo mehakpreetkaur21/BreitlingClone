@@ -1,25 +1,41 @@
-.categoryCnt {
+.mainCnt {
+    display: flex;
+    flex-direction: column;
     width: 70%;
     margin: auto;
 }
 
-.highlightHeadingCnt {
+.headingCnt {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.highlightHeading {
-    display: flex;
+.headingCntheading {
     color: #ffd700;
     text-transform: uppercase;
-    font-size: xx-large;
-    text-align: center;
-    justify-content: center;
 }
 
-.collectionCardCnt {
-    display: grid;
-    /* grid-template-columns: ; */
+.lengthCnt {
+    text-align: end;
+}
+
+.watchCardCntr {
+    width: 70%;
+    margin: auto;
+}
+
+.breadCrumbCnt {
+    display: flex;
+    justify-content: start;
+    width: 70%;
+    margin: auto;
+}
+
+.lengthCntCntr {
+    display: flex;
+    justify-content: end;
+    width: 70%;
+    margin: auto;
 }

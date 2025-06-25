@@ -1,0 +1,25 @@
+.categoryCnt {
+    width: 70%;
+    margin: auto;
+}
+
+.highlightHeadingCnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlightHeading {
+    display: flex;
+    color: #ffd700;
+    text-transform: uppercase;
+    font-size: xx-large;
+    text-align: center;
+    justify-content: center;
+}
+
+.collectionCardCnt {
+    display: grid;
+    /* grid-template-columns: ; */
+}

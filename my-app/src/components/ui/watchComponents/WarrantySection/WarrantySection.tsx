@@ -10,6 +10,8 @@ interface WarrantySectionProps {
   watchmakerImageAlt?: string;
   warrantyBadgeSrc?: string;
   useInlineSvg?: boolean; // Option to switch between inline SVG and image
+  productWarrantyDuration?: string;
+  productWarrantyExtensionDuration?: string;
 }
 
 // Breitling Warranty Badge SVG Component
@@ -47,7 +49,9 @@ const WarrantySection: React.FC<WarrantySectionProps> = ({
   watchmakerImageSrc = 'https://www.breitling.com/api/image-proxy/images.ctfassets.net/11yu5j5b14kx/3rrRnE9obmKCRP7swwyof8/1cd310cba4a3204c55e46a3072613725/_CAM1889_V2.jpg',
   watchmakerImageAlt = 'Breitling Watchmaker at work',
   warrantyBadgeSrc,
-  useInlineSvg = true
+  useInlineSvg = true,
+  productWarrantyDuration,
+  productWarrantyExtensionDuration,
 }) => {
   return (
     <div className={`${styles.container} ${className || ''}`}>
@@ -97,10 +101,15 @@ const WarrantySection: React.FC<WarrantySectionProps> = ({
             */}
     
           </div>
+
+           <div className={styles.warrantyTextRow}>
+              <p className={styles.warrantyTextRowTitle}>Warranty Duration (Years): {productWarrantyDuration}</p>
+              <p>Visit Breitling's Terms and Conditions for warranty details.</p>
+            </div>
           
           <div className={styles.extendedWarranty}>
             <h3 className={styles.extendedTitle}>
-              <span className={styles.plusYears}>+2 YEARS</span>
+              <span className={styles.plusYears}>+{productWarrantyExtensionDuration} YEARS</span>
               <span className={styles.subtitle}>OTHER BREITLING MOVEMENTS</span>
             </h3>
             

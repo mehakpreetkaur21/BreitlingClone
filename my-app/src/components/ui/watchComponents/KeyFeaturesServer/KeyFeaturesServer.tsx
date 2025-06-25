@@ -9,44 +9,47 @@ export interface FeatureItem {
   value: string;
 }
 
-export async function getFeatureData(): Promise<FeatureItem[]> {
-  // Normally, you'd fetch from a CMS or DB
+export async function getFeatureData(product: any): Promise<FeatureItem[]> {
   return [
     {
       icon: 'https://www.breitling.com/_next/static/images/caseMaterial.svg',
       label: 'Case Material',
-      value: 'Stainless steel',
+      value: product.caseMaterial?.values?.[0]?.name || 'N/A',
     },
     {
       icon: 'https://www.breitling.com/_next/static/images/waterResistance.svg',
       label: 'Water Resistance',
-      value: '10 bars',
+      value: product.waterResistance?.values?.[0]?.name || 'N/A',
     },
     {
       icon: 'https://www.breitling.com/_next/static/images/diameter.svg',
       label: 'Diameter',
-      value: '42 mm',
+      value: product.diameter?.values?.[0]?.name || 'N/A',
     },
     {
       icon: 'https://www.breitling.com/_next/static/images/thickness.svg',
       label: 'Thickness',
-      value: '14.7 mm',
+      value: product.thickness?.values?.[0]?.name || 'N/A',
     },
     {
       icon: 'https://www.breitling.com/_next/static/images/weight.svg',
       label: 'Weight (without Strap)',
-      value: '108 g',
+      value: product.weight?.values?.[0]?.name || 'N/A',
     },
     {
       icon: 'https://www.breitling.com/_next/static/images/powerReserve.svg',
       label: 'Power Reserve',
-      value: 'Approx. 48 hrs',
+      value: product.powerReserve?.values?.[0]?.name || 'N/A',
     },
   ];
 }
 
-export default async function KeyFeaturesServer() {
-  const features = await getFeatureData();
+interface KeyFeaturesServerProps {
+  product: any;
+}
+
+export default async function KeyFeaturesServer({product}: KeyFeaturesServerProps) {
+  const features = await getFeatureData(product);
 
   return (
     <section className={styles.keyFeatures}>

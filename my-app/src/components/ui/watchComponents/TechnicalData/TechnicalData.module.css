@@ -33,10 +33,10 @@
 }
 
 .columnTitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -51,8 +51,7 @@
 
 .label {
   font-size: 0.875rem;
-  font-weight: 600;
-  color: #666;
+  font-weight: 800;
   margin-bottom: 0.25rem;
   line-height: 1.3;
 }
